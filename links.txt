@@ -32,3 +32,8 @@ http://invensense.com/ - Produces MEMS
 http://damien.douxchamps.net/research/imu/ - IMU/INS/INU
 
 http://en.wikipedia.org/wiki/Inertial_measurement_unit
+
+
+Kalman filter
+
+http://greg.czerniak.info/node/5
