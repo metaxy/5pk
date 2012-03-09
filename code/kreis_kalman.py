@@ -1,18 +1,18 @@
-import numpy as np
 import pylab
+import math
+import random
+import numpy
 
-time_step = 0.1
-time_overalle = 5
-Q = 1e-5   # Process noise covariance
-R = 0.1**2 # estimate of measurement noise covariance
-
-xhat = [0,0]
-xhatminus = [0,0]
-P = np.matrix([1,0], [0,1])
-Pminus = np.matrix([0,0], [0,0])
-K = np.matrix([0,0], [0,0])
-
-def measurement(time):
-    return np.numpy.random.normal(np.sin(time),0.1)
-
-
+class KalmanFilter:
+    def __init__(self, _A, _B, _H, _x, _P, _Q, _R):
+        self.A = _A
+        self.B = _B
+        self.H = _H
+        self.state_estimate = _x
+        self.prob_estimate = _P
+        self.Q = _Q
+        self.R = _R
+    def currentState(self):
+        return self.state_estimate;
+    def step(self, control_vector, measurement_vector):
+        
