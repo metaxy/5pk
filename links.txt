@@ -1,0 +1,34 @@
+http://en.wikipedia.org/wiki/Inertial_measurement_unit
+http://www.starlino.com/imu_guide.html
+http://en.wikipedia.org/wiki/Accelerometer
+http://en.wikipedia.org/wiki/Gyroscope
+
+http://www.st.com/internet/analog/class/1575.jsp
+http://www.st.com/internet/analog/subclass/1288.jsp 
+
+
+Gryo and acceler
+
+http://www.dprg.org/projects/2003-01a/
+
+
+http://en.wikipedia.org/wiki/Vibrating_structure_gyroscope
+
+http://en.wikipedia.org/wiki/Foucault_pendulum
+
+
+http://www.hobbyking.com/hobbycity/store/uh_viewItem.asp?idProduct=4320  -  28,00 $
+
+
+http://www.rcgroups.com/
+
+
+http://invensense.com/mems/gyro/mpu6000.html 
+
+
+
+http://invensense.com/ - Produces MEMS
+
+http://damien.douxchamps.net/research/imu/ - IMU/INS/INU
+
+http://en.wikipedia.org/wiki/Inertial_measurement_unit

@@ -1,0 +1,15 @@
+IMU = Inertial Measurement Unit
+IRU = Inertial Reference Unit
+INS = Inertial Navigation System
+NAM = Navigation Accuracy Module
+MPS = Mission Planning System
+
+UAV = Unmanned aerial vehicle
+
+GPS = Global Positioning System
+
+OEM = Original equipment manufacturers
+
+
+ADC = Analog-to-Digital
+MEMS = Microelectromechanical systems
