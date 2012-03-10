@@ -41,13 +41,14 @@
 \begin{frame}
 	\section{Trägheitsnavigation}
 	\frametitle{Trägheitsnavigation}
-	In sich abgeschlossen Navigationtechnik, welche die Position und Orentierung eines Objektes relativ zu einem Start-punkt, orientierung und geschwindigkeit bestimmt.
+	In sich abgeschlossen Navigationstechnik, 
+	welche die Position und Orientierung eines Objektes relativ zu einem Start-punkt, orientierung und geschwindigkeit bestimmt.
 	
 	Besteht aus:
 	\begin{enumerate}
 		\item Computer
 		\item Accelerometer
-		\item Gryoscope
+		\item Gyroskop
 	\end{enumerate}
 	
 	2 Hauptgruppen von Konfigurationen \cite{Wood07}
@@ -90,7 +91,7 @@
   
   \begin{definition}[MEMS]
   = Microelectromechanical systems \\
-  Very small mechanical devices driven by electricity.
+  Sehr kleine mechanische Geräte angetrieben durch Elektrizität.
   \end{definition}
   \medskip 
   2 Typen von Acceloremtern:
@@ -106,8 +107,8 @@
   Konstante Beschleunigungen können nicht gemessen werden.
     \bigskip
     \begin{definition}[Piezoelektrizität]
-  Beschreibt das Auftreten einer elektrischen Spannung an Festkörpern, wenn sie elastisch verformt werden.
-  \end{definition}
+		Beschreibt das Auftreten einer elektrischen Spannung an Festkörpern, wenn sie elastisch verformt werden.
+	\end{definition}
 \end{frame}
 
 \begin{frame}
@@ -117,6 +118,7 @@
 	\end{block}
 
     \bigskip
+    
 	Vorteile
  	\begin{itemize}
  		\item Herstellung mit herkömmlicher MEMS Technologie möglich
@@ -132,17 +134,9 @@
 		C_{0} = \epsilon_{0} \epsilon_{r} \frac{A}{d} = \epsilon_{A} \frac{1}{d}
 	\end{equation}
 	
-	wobei $\epsilon_{A} = \epsilon_{0} \epsilon_{r} A$ und A die Fläche der Elektroden, d die Distanz zwischen ihnen und die $\epsilon_{r}$ die Perimitivität von dem Matrial dass die beiden trennt.
+	wobei $\epsilon_{A} = \epsilon_{0} \epsilon_{r} A$ und A die Fläche der Elektroden, d die Distanz zwischen ihnen und die $\epsilon_{r}$ die Perimitivität von dem Material dass die beiden trennt.
 
 \end{frame}
-
-%%\begin{frame}
-	%%\frametitle{Kapazität 2}
-	%%\resizebox{\textwidth}{\textheight} {
-	%%	\includegraphics[scale=0.75]{acceleromter_structure.png}
-	%%}
-
-%%\end{frame}
 
 \begin{frame}
 	\frametitle{Kapazität 3}
@@ -150,13 +144,18 @@
 \begin{wrapfigure}{l}{0.4\textwidth}
 \includegraphics[width=0.4\textwidth]{images/acceleromter_structure.png}
 \end{wrapfigure}
+
 Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äußeren Stationären Platten sind abhängig von den Verschiebung $x_{1}$ und $x_{2}$.
 	\begin{equation}
-	C_{1} = \epsilon_{A} \frac{1}{x_{1}} = \epsilon_{A} \frac{1}{d+x} = C_{0} - \Delta C
+		C_{1} = \epsilon_{A} \frac{1}{x_{1}} 
+			  = \epsilon_{A} \frac{1}{d+x} 
+			  = C_{0} - \Delta C
 	\end{equation}
 	
 	\begin{equation}
-	C_{2} = \epsilon_{A} \frac{1}{x_{2}} = \epsilon_{A} \frac{1}{d-x} = C_{0} + \Delta C
+		C_{2} = \epsilon_{A} \frac{1}{x_{2}} 
+		      = \epsilon_{A} \frac{1}{d-x} 
+		      = C_{0} + \Delta C
 	\end{equation}
 	
 \end{frame}
@@ -164,19 +163,21 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
 \begin{frame}
 	\frametitle{Kapazität 4}
 	
-	Wenn die Beschleunigung null ist, dann sind die Kapaziäten $C_{1}$ und $C_{2}$ gleich.
+	Wenn die Beschleunigung null ist, dann sind die Kapazitäten $C_{1}$ und $C_{2}$ gleich.
 	Wenn aber $x_{1} \neq x_{2}$ also $x \neq 0$ dann gilt:
 	\begin{equation}
-	C_{1} - C_{2} = 2 \Delta C = 2 \epsilon_{A} \frac{x}{d^{2}-x^{2}}
+		C_{1} - C_{2} = 2 \Delta C = 2 \epsilon_{A} \frac{x}{d^{2}-x^{2}}
 	\end{equation}
 	
 	Wenn wir nun $\Delta C$ messen, dann könne wir die Verschiebung $x$ messen indem wir die nichtlineare algebraische Gleichung lösen.
+	
 	\begin{equation}
-	\Delta C x^{2} + \epsilon_{A} x + \Delta C d^{2} = 0
+		\Delta C x^{2} + \epsilon_{A} x + \Delta C d^{2} = 0
 	\end{equation}
+	
 	Für kleine Verschiebungen ist der Term $\Delta C x^{2}$ verschwindend klein. Es gilt also
 	\begin{equation}
-	x \approx \frac{d^{2}}{\epsilon_{A}} \Delta C = d \frac{\Delta C}{C_{0}}
+		x \approx \frac{d^{2}}{\epsilon_{A}} \Delta C = d \frac{\Delta C}{C_{0}}
 	\end{equation}
 	Wir können also sagen, dass die Verschiebung annähernd proportional ist zur Kapazitätsdifferenz $\Delta C$
 \end{frame}
@@ -186,10 +187,12 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
   \frametitle{Gyroskop (Rotationssensoren)}
   
   \begin{block}{Was ist ein Gyroskop}
-  Ein Gerät zur Messung oder Erhaltung der Orientierung, basierend auf dem Prinzip des Drehimpulses.
+  	Ein Gerät zur Messung oder Erhaltung der Orientierung, basierend auf dem Prinzip des Drehimpulses.
   \end{block}
+  
   \bigskip
-  Typen von Gyrokopen
+  
+  Typen von Gyroskopen
   \begin{enumerate}
   	\item Mechanisch
   	\item Optisch 
@@ -198,46 +201,47 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
 \end{frame}
 
 \begin{frame}
-\frametitle{Mechanische Gyroskope}
-%% http://www.ipgp.fr/~lucas/Contrib/animbeamer.html
-\begin{wrapfigure}{l}{0.4\textwidth}
-\includegraphics[width=0.4\textwidth]{images/mechanical_gyroscope.png} 
-\end{wrapfigure}
-
-Bestehen aus einem spinning wheel und zwei Gimbals, welche es eine Rotation in 3-Achsen erlaubt. \\
-Ein Mechanische Gyroscope misst die Orienation direkt, während die meisten moderen Gryoskope die Winkelgschwindigkeit messen.
-
-Nachteile:
-\begin{enumerate}
-  	\item Bewegliche Teile
-  	\item Reibung
-  	\item Ein paar Minuten Aufwärmzeit benötigt
-  \end{enumerate}
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Optische Gyroskope}
-\begin{wrapfigure}{l}{0.4\textwidth}
-\includegraphics[width=0.4\textwidth]{images/fog.png} 
-\end{wrapfigure}
-
-Insbesondere Faserkreisel (Fibro Optic Gyroscope = FOG). \\
-Besteht aus einer langen Spule von Glasfasern. Es werden zwei Lichtimpluse in entgegengesetze Richtung abgefeuert. Wenn das System rotiert, erfährt der eine Lichtimplus eine längere Laufzeit.\\
-Gemessen wird über die Interferenz von den beiden Lichimplusen.
+	\frametitle{Mechanische Gyroskope}
+	%% http://www.ipgp.fr/~lucas/Contrib/animbeamer.html
+	\begin{wrapfigure}{l}{0.4\textwidth}
+	\includegraphics[width=0.4\textwidth]{images/mechanical_gyroscope.png} 
+	\end{wrapfigure}
+	
+	Bestehen aus einem spinning wheel und zwei Gimbals, welche es eine Rotation in 3-Achsen erlaubt. \\
+	Ein Mechanische Gyroskope misst die Orientierung direkt, 
+	während die meisten moderne Gryoskope die Winkelgeschwindigkeit messen.
+	
+	Nachteile:
+	\begin{enumerate}
+	  	\item Bewegliche Teile
+	  	\item Reibung
+	  	\item Ein paar Minuten Aufwärmzeit benötigt
+	  \end{enumerate}
 
 \end{frame}
 
 \begin{frame}
-  \section{Bewegeungsgleichungen}
-  \frametitle{Bewegeungsgleichungen}
+	\frametitle{Optische Gyroskope}
+	\begin{wrapfigure}{l}{0.4\textwidth}
+	\includegraphics[width=0.4\textwidth]{images/fog.png} 
+	\end{wrapfigure}
+	
+	Insbesondere Faserkreisel (Fibro Optic Gyroscope = FOG). \\
+	Besteht aus einer langen Spule von Glasfasern. Es werden zwei Lichtimpluse in entgegengesetze Richtung abgefeuert. Wenn das System rotiert, erfährt der eine Lichtimplus eine längere Laufzeit.\\
+	Gemessen wird über die Interferenz von den beiden Lichimplusen.
+
 \end{frame}
 
+% Ich denke wir stellen zuerst allgemein den Kalman-Filter dar.
 
 \begin{frame}
   \section{Kalman-Filter}
   \frametitle{Kalman-Filter}
+\end{frame}
+
+\begin{frame}
+  \section{Bewegunsgleichungen}
+  \frametitle{Modelierung eines Systems}
 \end{frame}
 
 \begin{frame}
