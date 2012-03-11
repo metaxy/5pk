@@ -91,8 +91,6 @@ class System
     #return vector z
     def measureX(self):
         
-        
-
 
 timeslice = 0.01
 iterations = 1444 
