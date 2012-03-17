@@ -34,7 +34,9 @@
   \section{Einleitung}
   \frametitle{Einleitung}
   
-  Dies ist eine Einleitung.
+  Positionsbestimmung war und ist ein Problem das nicht einfach zu lösen ist.
+  Es wurde auf vielfältige Weisen versucht zu lösen, vom Kompass und Sextant bis zu GPS.\\
+  Wir werden uns auf die Inertialnavigation begrenzen. 
 \end{frame}
 
 
@@ -57,6 +59,7 @@
 		\item Strapdown Systems
 	\end{enumerate}
 \end{frame}
+
 \begin{frame}
 	Stable Platform Systems
 	\resizebox{\textwidth}{0.4\textheight} {
@@ -69,9 +72,42 @@
 	}
 
 \end{frame}
+
 \begin{frame}
-  \section{Sensoren}
-  \frametitle{Sensoren}
+	\section{Autonome Flugköper}
+	\frametitle{Autonome Flugköper = Cruise Missile}
+	Beschreibung: \cite{GS04}
+	
+	\begin{itemize}
+		\item Dispensable
+		\item Pilotless
+		\item Self-Guided
+		\item Continously Powerd
+		\item Air-Breathing
+	\end{itemize}
+	
+	Anforderungen an die INS:\\
+	\begin{itemize}
+		\item 20 Hz Update
+		\item Mehre Stunden Flugzeit
+		\item Short-Term Accuracy
+		\item Bestimmung von missile position, velocity, attitude, and altitude
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\section{Sensoren}
+	\frametitle{Sensoren}
+	Zwei Gruppen von Sensoren:
+	\begin{itemize}
+		\item Geschwindikeit = Accelorometer
+		\item Orientierung = Gyroscope
+	\end{itemize}
+	
+	Hohe Anforderungen von Genauigkeit wegen der Akkumulierung von Fehlern.\\
+	Die Größe muss auch minimal sein, da die Flugkörper klein sind.
+
 \end{frame}
 
 \begin{frame}
@@ -142,7 +178,9 @@
 	\frametitle{Kapazität 3}
 
 \begin{wrapfigure}{l}{0.4\textwidth}
+
 \includegraphics[width=0.4\textwidth]{images/acceleromter_structure.png}
+
 \end{wrapfigure}
 
 Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äußeren Stationären Platten sind abhängig von den Verschiebung $x_{1}$ und $x_{2}$.
