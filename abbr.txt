@@ -13,3 +13,9 @@ OEM = Original equipment manufacturers
 
 ADC = Analog-to-Digital
 MEMS = Microelectromechanical systems
+LOS = Line Of Sight
+
+FOG = Faserkreisel
+RLG = Ring laser Gyroscope
+AOA = Angle of attack
+FOM = Figure of metric
