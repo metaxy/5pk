@@ -11,6 +11,7 @@
 \usepackage{biblatex}
 \usepackage{wrapfig}
 \addbibresource{bib}
+\usepackage{verbatim}
 
 \title{Inertialnavigation bei autonomen Flugkörpern}
 \author{
@@ -158,7 +159,7 @@
 	\end{block}
 
     \bigskip
-    
+   
 	Vorteile
  	\begin{itemize}
  		\item Herstellung mit herkömmlicher MEMS Technologie möglich
@@ -178,6 +179,12 @@
 
 \end{frame}
 
+\begin{frame}
+	\frametitle{Aufbau eines Accelormeters}
+\includegraphics[width=\textwidth]{images/acceleromter_structure.png}
+
+\end{frame}
+\begin{comment}
 \begin{frame}
 	\frametitle{Kapazität 3}
 
@@ -224,6 +231,8 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
 	Wir können also sagen, dass die Verschiebung annähernd proportional ist zur Kapazitätsdifferenz $\Delta C$
 \end{frame}
 
+\end{comment}
+
 \begin{frame}
   \subsection{Gyroskop}
   \frametitle{Gyroskop (Rotationssensoren)}
@@ -269,12 +278,11 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
 	\end{wrapfigure}
 	
 	Insbesondere Faserkreisel (Fibro Optic Gyroscope = FOG). \\
-	Besteht aus einer langen Spule von Glasfasern. Es werden zwei Lichtimpluse in entgegengesetze Richtung abgefeuert. Wenn das System rotiert, erfährt der eine Lichtimplus eine längere Laufzeit.\\
-	Gemessen wird über die Interferenz von den beiden Lichimplusen.
+	Besteht aus einer langen Spule von Glasfasern. Es werden zwei Lichtimpluse in entgegengesetzte Richtung abgefeuert. Wenn das System rotiert, erfährt der eine Lichtimplus eine längere Laufzeit.\\
+	Gemessen wird über die Interferenz von den beiden Lichtimplusen.
 
 \end{frame}
 
-% Ich denke wir stellen zuerst allgemein den Kalman-Filter dar.
 
 \begin{frame}
   \section{Kalman-Filter}
