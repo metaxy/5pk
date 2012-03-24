@@ -50,7 +50,7 @@ class Simulation:
         pygame.init()
 
         self.screen = pygame.display.set_mode((win_width, win_height))
-        pygame.display.set_caption("Simulation of a rotating 3D Cube (http://codeNtronix.com)")
+        pygame.display.set_caption("Rotate")
         
         self.clock = pygame.time.Clock()
 
@@ -72,7 +72,7 @@ class Simulation:
         # Define colors for each face
         self.colors = [(255,0,255),(255,0,0),(0,255,0),(0,0,255),(0,255,255),(255,255,0)]
 
-        self.angle = 0
+        self.angle = 60
         
     def run(self):
         """ Main Loop """
