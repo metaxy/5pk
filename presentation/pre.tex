@@ -30,7 +30,7 @@
 	\frametitle{Inhaltsverzeichnis}
 	\tableofcontents
 }
-
+\begin{comment}
 \begin{frame}
   \section{Einleitung}
   \frametitle{Einleitung}
@@ -39,67 +39,7 @@
   Es wurde auf vielfältige Weisen versucht zu lösen, vom Kompass und Sextant bis zu GPS.\\
   Wir werden uns auf die Inertialnavigation begrenzen. 
 \end{frame}
-
-
-\begin{frame}
-	\section{Trägheitsnavigation}
-	\frametitle{Trägheitsnavigation}
-	In sich abgeschlossene Navigationstechnik, 
-	welche die Position und Drehung eines Objektes relativ zu einem Startpunkt Drehung und Geschwindigkeit bestimmt.
-	
-	Besteht aus:
-	\begin{enumerate}
-		\item Computer
-		\item Accelerometer
-		\item Gyroskop
-	\end{enumerate}
-	
-	2 Hauptgruppen von Konfigurationen \cite{Wood07}
-	\begin{enumerate}
-		\item Stable Platform Systems
-		\item Strapdown Systems
-	\end{enumerate}
-\end{frame}
-\begin{frame}
-	\frametitle{Stable Platform Systems}
-	   
-		\includegraphics[scale=0.55]{images/gimbal.png} \cite{King98}
-
-
-\end{frame}
-\begin{frame}
-	Stable Platform Systems
-	\resizebox{\textwidth}{0.4\textheight} {
-	\includegraphics[scale=1]{images/stable_platform.png} 
-	}
-	\bigskip
-	Strapdown Systems
-	\resizebox{\textwidth}{0.4\textheight} {
-		\includegraphics[scale=1]{images/strapdown.png} 
-	}
-
-\end{frame}
-
-\begin{frame}
-	\section{Autonome Flugköper}
-	\frametitle{Autonome Flugköper = Cruise Missile}
-	Beschreibung: \cite{GS04}
-	
-	\begin{itemize}
-		\item Entbehrlich
-		\item Unbemannt
-		\item Selbststeuernd
-		\item Stetiger Antrieb
-	\end{itemize}
-	
-	Anforderungen an die INS:\\
-	\begin{itemize}
-		\item 20 Hz Update
-		\item Mehre Stunden Flugzeit
-		\item Kurzzeit Genauigkeit
-	\end{itemize}
-	
-\end{frame}
+\end{comment}
 
 \begin{frame}
 	\section{Sensoren}
@@ -109,15 +49,12 @@
 		\item Geschwindikeit = Accelorometer
 		\item Orientierung = Gyroscope
 	\end{itemize}
-	
-	Hohe Anforderungen von Genauigkeit wegen der Akkumulierung von Fehlern.\\
-	Die Größe muss auch minimal sein, da die Flugkörper klein sind.
 
 \end{frame}
 
 \begin{frame}
-  \subsection{Acceloremeter}
-  \frametitle{Acceloremeter (Beschleunigungssensoren)}
+  \subsection{Acceleromter}
+  \frametitle{Accelerometer(Beschleunigungssensoren)}
   
   Anwendung:
   \begin{itemize}
@@ -128,14 +65,14 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{MEMS Acceloremeter}
+  \frametitle{MEMS Accelerometer}
   
   \begin{definition}[MEMS]
   = Microelectromechanical systems \\
   Sehr kleine mechanische Geräte angetrieben durch Elektrizität.
   \end{definition}
   \medskip 
-  2 Typen von Acceloremtern:
+  Accelerometer:
   \begin{itemize}
     \item Piezoelectric accelerometer
   	\item Surface micromachined capacitive
@@ -153,7 +90,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Capacitive acceloremters}
+	\frametitle{Capacitive accelerometer}
 	\begin{block}{Funktionsweise}
 		Messung von Kapazitätsänderungen.
 	\end{block}
@@ -180,7 +117,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Aufbau eines Accelormeters}
+	\frametitle{Aufbau eines MEMS Accelerometer}
 \includegraphics[width=\textwidth]{images/acceleromter_structure.png}
 
 \end{frame}
@@ -243,7 +180,7 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
   
   \bigskip
   
-  Typen von Gyroskopen
+  Gyroskop-Typen
   \begin{enumerate}
   	\item Mechanisch
   	\item Optisch 
@@ -258,8 +195,8 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
 	\includegraphics[width=0.4\textwidth]{images/mechanical_gyroscope.png} 
 	\end{wrapfigure}
 	
-	Bestehen aus einem spinning wheel und zwei Gimbals, welche es eine Rotation in 3-Achsen erlaubt. \\
-	Ein Mechanische Gyroskope misst die Orientierung direkt, 
+	Bestehen aus einem rotierenden Rad und zwei Kardanische Aufhängungen , welche es eine Rotation in 3-Achsen erlaubt. \\
+	Ein Mechanische Gyroskop misst die Orientierung direkt, 
 	während die meisten moderne Gryoskope die Winkelgeschwindigkeit messen.
 	
 	Nachteile:
@@ -281,6 +218,66 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
 	Besteht aus einer langen Spule von Glasfasern. Es werden zwei Lichtimpluse in entgegengesetzte Richtung abgefeuert. Wenn das System rotiert, erfährt der eine Lichtimplus eine längere Laufzeit.\\
 	Gemessen wird über die Interferenz von den beiden Lichtimplusen.
 
+\end{frame}
+
+\begin{frame}
+	\section{Trägheitsnavigation}
+	\frametitle{Trägheitsnavigation}
+	In sich abgeschlossene Navigationstechnik, 
+	welche die Position und Drehung eines Objektes relativ zu einem Startpunkt Drehung und Geschwindigkeit bestimmt.
+	
+	Besteht aus:
+	\begin{enumerate}
+		\item Computer
+		\item Accelerometer
+		\item Gyroskop
+	\end{enumerate}
+	
+	2 Hauptgruppen von Konfigurationen \cite{Wood07}
+	\begin{enumerate}
+		\item Stable Platform Systems
+		\item Strapdown Systems
+	\end{enumerate}
+\end{frame}
+\begin{frame}
+	\frametitle{Stable Platform Systems}
+	   
+		\includegraphics[scale=0.55]{images/gimbal.png} \cite{King98}
+
+
+\end{frame}
+\begin{frame}
+	Stable Platform Systems
+	\resizebox{\textwidth}{0.4\textheight} {
+	\includegraphics[scale=1]{images/stable_platform.png} 
+	}
+	\bigskip
+	Strapdown Systems
+	\resizebox{\textwidth}{0.4\textheight} {
+		\includegraphics[scale=1]{images/strapdown.png} 
+	}
+
+\end{frame}
+
+\begin{frame}
+	\section{Autonome Flugköper}
+	\frametitle{Marschflugkörper}
+	Beschreibung: \cite{GS04}
+	
+	\begin{itemize}
+		\item Entbehrlich
+		\item Unbemannt
+		\item Selbststeuernd
+		\item Stetiger Antrieb
+	\end{itemize}
+	
+	Anforderungen an das INS:\\
+	\begin{itemize}
+		\item 20 Hz Update
+		\item Mehre Stunden Flugzeit
+		\item Kurzzeit Genauigkeit
+	\end{itemize}
+	
 \end{frame}
 
 
