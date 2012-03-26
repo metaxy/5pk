@@ -13,9 +13,14 @@ from math import *
 
 
 class IMU:
-    ser = serial.Serial(2, 115200, bytesize=serial.EIGHTBITS, parity=serial.PARITY_NONE, stopbits=1, timeout=1, xonxoff=True)
+    
+    def __init__(this):
+        this.ser = serial.Serial(2, 115200, bytesize=serial.EIGHTBITS, parity=serial.PARITY_NONE, stopbits=1, timeout=1, xonxoff=True)
+        print "IMU created"
     
     def start(this):
+
+        print "IMU started"
         this.ser.flush()
         this.ser.write('+'.encode('latin1'))
         
@@ -23,6 +28,7 @@ class IMU:
         return float(a.replace('+',''))
         
     def read(this):
+        print "Reading"
         this.ser.flush()
         list = str(this.ser.readline(), encoding='utf8' ).split(' ')
         time = this.parse(list[0])
@@ -102,22 +108,23 @@ class Simulation:
         self.colors = [(255,0,255),(255,0,0),(0,255,0),(0,0,255),(0,255,255),(255,255,0)]
 
         self.angle = 60
-        
-    def run(self):
+        self.imu = IMU()
         try:
-            imu = IMU()
-            imu.start()
+            self.imu.start()
         except:
-            imu.close();
+            self.imu.close();
             print "Failed to open IMU"
             return
+        
+    def run(self):
+        
             
         """ Main Loop """
         while 1:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     print "Quitting"
-                    imu.close()
+                    self.imu.close()
                     pygame.quit()
                     sys.exit()
 
@@ -127,7 +134,7 @@ class Simulation:
             # It will hold transformed vertices.
             t = []
             try:
-                time,v,theta,acc = imu.read()
+                time,v,theta,acc = self.imu.read()
             except:
                 print "Failed to read IMU"
                 continue
