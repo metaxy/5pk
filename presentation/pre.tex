@@ -14,15 +14,15 @@
 \usepackage{verbatim}
 \usepackage{subfigure}
 
-\title{Inertialnavigation von autonomen Flugkörpern}
+\title{Inertialnavigation bei autonomen Flugkörpern}
 \author{
 	Fabian Ulbricht \and
 	Paul Walger 
 }
+\date[27.03.12]{27.März 2012}
 
 \begin{document}
 
-%% Start
 \frame{
 	\titlepage
 }
@@ -103,9 +103,6 @@
 		\item Unabhängig von Außentemperatur
  	\end{itemize}
 \end{frame}
-
-
-
 
 \begin{frame}
 	\frametitle{Kapazität}
@@ -308,10 +305,10 @@
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}[allowframebreaks]
   \section{Literatur}
   \frametitle{Literatur}
-\printbibliography
+	\printbibliography
 
 \end{frame}
 
@@ -319,4 +316,53 @@
 	\frametitle{Stable Platform Systems}\cite{King98}
 	\includegraphics[scale=0.55]{images/gimbal.png} 
 \end{frame}
+\begin{frame}
+	\begin{equation}
+		\textbf{X}_{k} = \textbf{F}_{k-1} \textbf{X}_{k-1} + \textbf{B}_{k-1} 	\textbf{u}_{k-1} + \textbf{w}_{k-1} 
+	\end{equation}
+	\begin{equation}
+		\textbf{Z}_{k} = \textbf{H}_{k} \textbf{X}_{k} + \textbf{v}_{k}
+	\end{equation}
+	\begin{equation}
+		\textbf{v}_{k} \sim \mathcal{WN}(\textbf{0}, \textbf{R}_{k})
+	\end{equation}
+	\begin{equation}
+		\hat{\textbf{X}}_{k} \sim \mathcal N (\hat{\textbf{x}}_{k}, \hat{\textbf{P}}_{k}) 
+	\end{equation}
+	\end{frame}
+\begin{frame}
+	\begin{equation}
+	\hat{\textbf{x}}_{k|k-1} = \textbf{F}_{k-1}\hat{\textbf{x}}_{k-1} + \textbf{B}_{k-1}\textbf{u}_{k-1}
+	\end{equation}
+	\begin{equation}
+	\hat{\textbf{P}}_{k|k-1} =  \textbf{F}_{k-1} \hat{\textbf{P}}_{k-1} \textbf{F}_{k-1}^{\text{T}} + \textbf{Q}_{k-1} 
+	\end{equation}
+	\begin{equation}
+	\hat{\textbf{x}}_{k} = \hat{\textbf{x}}_{k|k-1} + \hat{\textbf{K}}_k\tilde{\textbf{y}}_k
+	\end{equation}
+	\begin{equation}
+	\hat{\textbf{P}}_{k} = \hat{\textbf{P}}_{k|k-1} - \hat{\textbf{K}}_k \textbf{S}_k \hat{\textbf{K}}_k^\text{T}
+	\end{equation}
+	\begin{equation}
+	\tilde{\textbf{y}}_k = \textbf{z}_k - \textbf{H}_k\hat{\textbf{x}}_{k|k-1}
+	\end{equation}
+	\begin{equation}
+	\textbf{S}_k = \textbf{H}_k \hat{\textbf{P}}_{k|k-1} \textbf{H}_k^\text{T} + \textbf{R}_k
+	\end{equation}
+	\begin{equation}
+	\hat{\textbf{K}}_k = \hat{\textbf{P}}_{k|k-1}\textbf{H}_k^\text{T}\textbf{S}_k^{-1}
+	\end{equation}
+	\cite{Ribeiro2004}
+	\cite{DeSchutter99}
+	\cite{Winkler04}
+	\cite{Welch01}
+	\cite{Doug07}
+	\cite{Stoytchev07}
+	\cite{Walchko02}
+	\cite{Fletcher10}
+	\cite{AM08}
+	\cite{wiki-kal} \cite{wiki-kal2} \cite{wiki-inert} \cite{Czerniak12} \cite{Muk12} \cite{TS12} \cite{Esme12} \cite{U12} \cite{Simon12}
+
+\end{frame}
+
 \end{document}
