@@ -27,7 +27,7 @@
 }
 
 \frame {
-	\frametitle{Inhaltsverzeichnis}
+	\frametitle{Gliederung}
 	\tableofcontents
 }
 
@@ -61,7 +61,6 @@
         \caption{Bild rechts}
       \end{minipage}
     \end{figure}
-    Wird meist in Kombination mit anderen Sensoren oder GPS verwendet
 \end{frame}
 
 \begin{frame}
@@ -258,8 +257,14 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
 	
 	2 Hauptgruppen von Konfigurationen \cite{Wood07}
 	\begin{enumerate}
-		\item Stable Platform Systems
-		\item Strapdown Systems
+		\item Stabile Plattform
+			\begin{itemize}
+				\item Accelerometer werden durch Gyrokope immer in der selben Orientation gehalten
+			\end{itemize}
+		\item Strapdown
+			\begin{itemize}
+				\item Messsystem werden mitgedreht. Drehung wird bei Accelerometer wird rausgerechnet.
+			\end{itemize}
 	\end{enumerate}
 \end{frame}
 \begin{frame}
@@ -284,14 +289,15 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
 
 \begin{frame}
 	\section{Autonome Flugköper}
-	\frametitle{Marschflugkörper}
-	Beschreibung: \cite{GS04}
+	\frametitle{Autonome Flugkörper}
+	Bespiele: 
 	
 	\begin{itemize}
-		\item Entbehrlich
-		\item Unbemannt
-		\item Selbststeuernd
-		\item Stetiger Antrieb
+		\item Satelliten
+		\item Raumfahrzeuge
+		\item Selbstfahrende Autos
+		\item Autopilot
+		\item Marschflugkörper
 	\end{itemize}
 	
 	Anforderungen an das INS:\\
@@ -325,7 +331,7 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
 \begin{frame}
   \frametitle{Diskreter Kalman-Filter}
   \begin{itemize}
-  	  \item einfacher Kalman-Filter, LQE
+  	  \item einfacher Kalman-Filter
 	  \item Swerling (1958), Kalman (1960), Kalman und Bucy (1961)
 	  \item zuerst militärisch, heutzutage Anwendung in allen Bereichen der Mess- Steuer- und Regelungstechnik
   \end{itemize}
@@ -359,7 +365,7 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
           \end{minipage}\hfill
           \begin{minipage}{0.4\textwidth}
            \centering
-            \includegraphics[width=0.8\textwidth]{images/Funktionsprinzip.png}
+            \includegraphics[width=0.8\textwidth]{images/Funktionsprinzip.svg}
           \end{minipage}\hfill
    \end{figure}
 \end{frame}
