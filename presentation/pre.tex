@@ -30,24 +30,47 @@
 	\frametitle{Inhaltsverzeichnis}
 	\tableofcontents
 }
-\begin{comment}
+
 \begin{frame}
   \section{Einleitung}
   \frametitle{Einleitung}
-  
-  Positionsbestimmung war und ist ein Problem das nicht einfach zu lösen ist.
-  Es wurde auf vielfältige Weisen versucht zu lösen, vom Kompass und Sextant bis zu GPS.\\
-  Wir werden uns auf die Inertialnavigation begrenzen. 
+  \begin{definition}[Inertialnavigation]
+  Feststellung von Position, Richtung und Geschwindigkeit\\
+  und Navigation nur mit Hilfe von
+  \begin{itemize}
+  \item Beschleunigungssensoren
+  \item Drehratensensoren
+  \end{itemize}
+  und der damit verbundenen Messung der 6 Freiheiten ohne andere Daten von Außen
+  \end{definition}
+  Anwendung:
+  \begin{figure}[htbp]
+      \begin{minipage}{0.3\textwidth}
+       \centering
+        \includegraphics[width=0.8\textwidth]{images/cruise_missle.jpg}
+        \caption{Bild links}
+      \end{minipage}\hfill
+      \begin{minipage}{0.3\textwidth}
+       \centering
+        \includegraphics[width=0.8\textwidth]{images/cruise_missle.jpg}
+        \caption{Bild rechts}
+      \end{minipage}\hfill
+      \begin{minipage}{0.3\textwidth}
+       \centering
+        \includegraphics[width=0.8\textwidth]{images/cruise_missle.jpg}
+        \caption{Bild rechts}
+      \end{minipage}
+    \end{figure}
+    Wird meist in Kombination mit anderen Sensoren oder GPS verwendet
 \end{frame}
-\end{comment}
 
 \begin{frame}
 	\section{Sensoren}
 	\frametitle{Sensoren}
 	Zwei Gruppen von Sensoren:
 	\begin{itemize}
-		\item Geschwindikeit = Accelorometer
-		\item Orientierung = Gyroscope
+		\item Geschwindgikeit = Accelerometer
+		\item Drehung = Gyroskop
 	\end{itemize}
 
 \end{frame}
@@ -284,21 +307,61 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
 \begin{frame}
   \section{Kalman-Filter}
   \frametitle{Kalman-Filter}
+  \begin{itemize}
+  	\item Problem:
+  		\begin{itemize}
+  			\item Abweichungen in den Sensordaten durch Aufsummierung von Fehlern, Rauschen im Prozess und in den Sensoren
+  		\end{itemize}
+  	\item Lösung:
+  		\begin{itemize}
+  			\item Vorausberechnung des nächsten Zustands des Systems mit Hilfe eines bekannten zu Grunde liegenden physikalischen Modells
+  			\item Fusion aller zur Verfügung stehender Sensorwerte unabhängig von ihrer Genauigkeit Sensorwerte
+  			\item gewichtetes Mittel dieser beiden Größen, um die Summe aller Fehlerquadrate zu minimieren
+  		\end{itemize}
+  \end{itemize}
+  \includegraphics[width=0.4\textwidth]{images/Grundkurven.jpg}
 \end{frame}
 
 \begin{frame}
   \frametitle{Diskreter Kalman-Filter}
-  
+  \begin{itemize}
+  	  \item einfacher Kalman-Filter, LQE
+	  \item Swerling (1958), Kalman (1960), Kalman und Bucy (1961)
+	  \item zuerst militärisch, heutzutage Anwendung in allen Bereichen der Mess- Steuer- und Regelungstechnik
+  \end{itemize}
+  \begin{definition}[Kalman-Filter]
+  	Ein Kalman-Filter ist ein linearer, modellbasierender, stochastischer, rekursiver, gewichteter Schätz-Algorithmus zur Minimierung von Fehlerquadraten unbestimmer Messgrößen
+  \end{definition}
+  \begin{figure}[htbp]
+        \begin{minipage}{0.3\textwidth}
+         \centering
+          \includegraphics[width=0.8\textwidth]{images/docking.jpg}
+          \caption{Präzisionsnavigation}
+        \end{minipage}\hfill
+        \begin{minipage}{0.3\textwidth}
+         \centering
+          \includegraphics[width=0.8\textwidth]{images/smartwheel.jpg}
+          \caption{Autonome technische Geräte jeder Art}
+        \end{minipage}\hfill
+        \begin{minipage}{0.3\textwidth}
+         \centering
+          \includegraphics[width=0.8\textwidth]{images/head-tracking.jpg}
+          \caption{Tracking von Körperteilen}
+        \end{minipage}
+      \end{figure}
 \end{frame}
-
 \begin{frame}
-  \section{Bewegunsgleichungen}
-  \frametitle{Modelierung eines Systems}
-\end{frame}
-
-\begin{frame}
-  \section{Kalman-Filter für UAV}
-  \frametitle{Kalman-Filter für UAV}
+  \frametitle{Funktionsweise}
+   \begin{figure}[htbp]
+          \begin{minipage}{0.4\textwidth}
+           \centering
+            \includegraphics[width=0.8\textwidth]{images/grundfunktion.jpg}
+          \end{minipage}\hfill
+          \begin{minipage}{0.4\textwidth}
+           \centering
+            \includegraphics[width=0.8\textwidth]{images/Funktionsprinzip.png}
+          \end{minipage}\hfill
+   \end{figure}
 \end{frame}
 
 \begin{frame}
