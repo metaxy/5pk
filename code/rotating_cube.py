@@ -6,6 +6,35 @@
 """
 import sys, math, pygame
 from operator import itemgetter
+import serial
+import inspect
+import numpy as np
+from math import *
+
+
+class IMU:
+    ser = serial.Serial(2, 115200, bytesize=serial.EIGHTBITS, parity=serial.PARITY_NONE, stopbits=1, timeout=1, xonxoff=True)
+    
+    def start(this):
+        this.ser.flush()
+        this.ser.write('+'.encode('latin1'))
+        
+    def parse(this,a):
+        return float(a.replace('+',''))
+        
+    def read(this):
+        this.ser.flush()
+        list = str(this.ser.readline(), encoding='utf8' ).split(' ')
+        time = this.parse(list[0])
+        v = [this.parse(list[3]),this.parse(list[4]),this.parse(list[5])]
+        theta = [this.parse(list[8]),this.parse(list[9]),this.parse(list[10])]
+        acc=[this.parse(list[13]),this.parse(list[14]),this.parse(list[15])]
+        
+        return [time,v,theta,acc]
+    
+    def close(this):
+        print "Closing IMU"
+        this.ser.close()
 
 class Point3D:
     def __init__(self, x = 0, y = 0, z = 0):
@@ -75,10 +104,20 @@ class Simulation:
         self.angle = 60
         
     def run(self):
+        try:
+            imu = IMU()
+            imu.start()
+        except:
+            imu.close();
+            print "Failed to open IMU"
+            return
+            
         """ Main Loop """
         while 1:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    print "Quitting"
+                    imu.close()
                     pygame.quit()
                     sys.exit()
 
@@ -87,10 +126,14 @@ class Simulation:
 
             # It will hold transformed vertices.
             t = []
-            
+            try:
+                time,v,theta,acc = imu.read()
+            except:
+                print "Failed to read IMU"
+                continue
             for v in self.vertices:
                 # Rotate the point around X axis, then around Y axis, and finally around Z axis.
-                r = v.rotateX(self.angle).rotateY(self.angle).rotateZ(self.angle)
+                r = v.rotateX(theta[0]).rotateY(theta[1]).rotateZ(theta[2])
                 # Transform the point from 3D to 2D
                 p = r.project(self.screen.get_width(), self.screen.get_height(), 256, 4)
                 # Put the point in the list of transformed vertices
