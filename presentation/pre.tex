@@ -12,8 +12,9 @@
 \usepackage{wrapfig}
 \addbibresource{bib}
 \usepackage{verbatim}
+\usepackage{subfigure}
 
-\title{Inertialnavigation bei autonomen Flugkörpern}
+\title{Inertialnavigation von autonomen Flugkörpern}
 \author{
 	Fabian Ulbricht \and
 	Paul Walger 
@@ -64,59 +65,33 @@
 \end{frame}
 
 \begin{frame}
-	\section{Sensoren}
-	\frametitle{Sensoren}
-	Zwei Gruppen von Sensoren:
+	\subsection{Acceleromter}
+	\frametitle{Accelerometer (Beschleunigungssensoren)}
+	\begin{block}{Prinzip}
+		Messung der aufgrund von Trägheitskräften resultierende Beschleunigung
+	\end{block}
+	Anwendung:
 	\begin{itemize}
-		\item Geschwindgikeit = Accelerometer
-		\item Drehung = Gyroskop
+    	\item Messung von (linearen) Beschleunigungen
+  		\item Sensorik in digitalen Kameras
+		\item Positionsbestimmung
 	\end{itemize}
+	\begin{figure}
+\subfigure{\includegraphics[width=0.49\textwidth, height=0.4\textheight,keepaspectratio=true]{images/acc2.jpg}}\hfil
+\subfigure{\includegraphics[width=0.49\textwidth, height=0.4\textheight,keepaspectratio=true]{images/acc.png}}\hfil
+\end{figure}
 
 \end{frame}
 
 \begin{frame}
-  \subsection{Acceleromter}
-  \frametitle{Accelerometer(Beschleunigungssensoren)}
-  
-  Anwendung:
-  \begin{itemize}
-    \item Messung von (linearen) Beschleunigungen
-  	\item Sensorik in digitalen Kameras
-  	\item Positionsbestimmung
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{MEMS Accelerometer}
-  
-  \begin{definition}[MEMS]
-  = Microelectromechanical systems \\
-  Sehr kleine mechanische Geräte angetrieben durch Elektrizität.
-  \end{definition}
-  \medskip 
-  Accelerometer:
-  \begin{itemize}
-    \item Piezoelectric accelerometer
-  	\item Surface micromachined capacitive
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Piezoelectric accelerometer}
-  Wirkungsweise: Die bei Beschleunigung Änderung der einwirkenden Kraft wird mittels des Piezoelektrischen Effekts gemessen.
-  Konstante Beschleunigungen können nicht gemessen werden.
-    \bigskip
-    \begin{definition}[Piezoelektrizität]
-		Beschreibt das Auftreten einer elektrischen Spannung an Festkörpern, wenn sie elastisch verformt werden.
-	\end{definition}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Capacitive accelerometer}
+	\frametitle{Kapazitive Accelerometer}
 	\begin{block}{Funktionsweise}
 		Messung von Kapazitätsänderungen.
 	\end{block}
-
+ 	\begin{definition}[MEMS]
+  	= Microelectromechanical systems \\
+  	Sehr kleine mechanische Geräte angetrieben durch Elektrizität.
+  	\end{definition}
     \bigskip
    
 	Vorteile
@@ -131,10 +106,14 @@
 	\frametitle{Kapazität}
 	Die Kapazität von 2 parallen Platten ist \cite{AM08}
 	\begin{equation}
-		C_{0} = \epsilon_{0} \epsilon_{r} \frac{A}{d} = \epsilon_{A} \frac{1}{d}
+		C_{0} = \epsilon_{0} \epsilon_{r} \frac{A}{d}
 	\end{equation}
-	
-	wobei $\epsilon_{A} = \epsilon_{0} \epsilon_{r} A$ und A die Fläche der Elektroden, d die Distanz zwischen ihnen und die $\epsilon_{r}$ die Perimitivität von dem Material dass die beiden trennt.
+	\begin{itemize}
+		\item $\epsilon_{0}$ = elektrische Feldkonstante
+		\item $\epsilon_{r}$ = relative Permittivität
+		\item $A$ = Fläche der Elektroden
+		\item $d$ = Distanz zwischen den Elektroden
+	\end{itemize}
 
 \end{frame}
 
@@ -143,91 +122,47 @@
 \includegraphics[width=\textwidth]{images/acceleromter_structure.png}
 
 \end{frame}
-\begin{comment}
-\begin{frame}
-	\frametitle{Kapazität 3}
-
-\begin{wrapfigure}{l}{0.4\textwidth}
-
-\includegraphics[width=0.4\textwidth]{images/acceleromter_structure.png}
-
-\end{wrapfigure}
-
-Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äußeren Stationären Platten sind abhängig von den Verschiebung $x_{1}$ und $x_{2}$.
-	\begin{equation}
-		C_{1} = \epsilon_{A} \frac{1}{x_{1}} 
-			  = \epsilon_{A} \frac{1}{d+x} 
-			  = C_{0} - \Delta C
-	\end{equation}
-	
-	\begin{equation}
-		C_{2} = \epsilon_{A} \frac{1}{x_{2}} 
-		      = \epsilon_{A} \frac{1}{d-x} 
-		      = C_{0} + \Delta C
-	\end{equation}
-	
-\end{frame}
-
-\begin{frame}
-	\frametitle{Kapazität 4}
-	
-	Wenn die Beschleunigung null ist, dann sind die Kapazitäten $C_{1}$ und $C_{2}$ gleich.
-	Wenn aber $x_{1} \neq x_{2}$ also $x \neq 0$ dann gilt:
-	\begin{equation}
-		C_{1} - C_{2} = 2 \Delta C = 2 \epsilon_{A} \frac{x}{d^{2}-x^{2}}
-	\end{equation}
-	
-	Wenn wir nun $\Delta C$ messen, dann könne wir die Verschiebung $x$ messen indem wir die nichtlineare algebraische Gleichung lösen.
-	
-	\begin{equation}
-		\Delta C x^{2} + \epsilon_{A} x + \Delta C d^{2} = 0
-	\end{equation}
-	
-	Für kleine Verschiebungen ist der Term $\Delta C x^{2}$ verschwindend klein. Es gilt also
-	\begin{equation}
-		x \approx \frac{d^{2}}{\epsilon_{A}} \Delta C = d \frac{\Delta C}{C_{0}}
-	\end{equation}
-	Wir können also sagen, dass die Verschiebung annähernd proportional ist zur Kapazitätsdifferenz $\Delta C$
-\end{frame}
-
-\end{comment}
 
 \begin{frame}
   \subsection{Gyroskop}
   \frametitle{Gyroskop (Rotationssensoren)}
   
   \begin{block}{Was ist ein Gyroskop}
-  	Ein Gerät zur Messung oder Erhaltung der Orientierung, basierend auf dem Prinzip des Drehimpulses.
+  	Ein Gerät zur Messung oder Erhaltung der Orientierung.
   \end{block}
   
   \bigskip
   
-  Gyroskop-Typen
+  Typen
   \begin{enumerate}
   	\item Mechanisch
-  	\item Optisch 
-  	\item MEMS
+  	\item Optisch
+  	\item MEMS Gyroscope
   \end{enumerate}
+  
+	\begin{center}
+  		\includegraphics[scale=0.09]{images/Original_gyroscope-1000x1000.jpg} 
+	\end{center}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Mechanische Gyroskope}
 	%% http://www.ipgp.fr/~lucas/Contrib/animbeamer.html
-	\begin{wrapfigure}{l}{0.4\textwidth}
-	\includegraphics[width=0.4\textwidth]{images/mechanical_gyroscope.png} 
-	\end{wrapfigure}
-	
-	Bestehen aus einem rotierenden Rad und zwei Kardanische Aufhängungen , welche es eine Rotation in 3-Achsen erlaubt. \\
-	Ein Mechanische Gyroskop misst die Orientierung direkt, 
-	während die meisten moderne Gryoskope die Winkelgeschwindigkeit messen.
-	
-	Nachteile:
-	\begin{enumerate}
-	  	\item Bewegliche Teile
-	  	\item Reibung
-	  	\item Ein paar Minuten Aufwärmzeit benötigt
-	  \end{enumerate}
 
+	\begin{itemize}
+		\item basiert aus dem Prinzip der Drehimpluserhaltung
+		\item ein rotierendes Rad und zwei Kardanische Aufhängungen
+		\item Nachteile:
+		\begin{enumerate}
+	  		\item Bewegliche Teile
+	  		\item Reibung
+	  		\item Ein paar Minuten Aufwärmzeit benötigt
+	  	\end{enumerate}
+	\end{itemize}
+
+	\begin{center}
+		\includegraphics[width=0.35\textwidth]{images/mechanical_gyroscope.png} 
+	\end{center}
 \end{frame}
 
 \begin{frame}
@@ -267,20 +202,19 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
 			\end{itemize}
 	\end{enumerate}
 \end{frame}
+
 \begin{frame}
 	\frametitle{Stable Platform Systems}
-	   
-		\includegraphics[scale=0.55]{images/gimbal.png} \cite{King98}
-
-
+	\includegraphics[scale=0.55]{images/gimbal.png} \cite{King98}
 \end{frame}
+
 \begin{frame}
-	Stable Platform Systems
+	Vollkardanisch kreiselstabilisierte (Stabile Plattform)
 	\resizebox{\textwidth}{0.4\textheight} {
 	\includegraphics[scale=1]{images/stable_platform.png} 
 	}
 	\bigskip
-	Strapdown Systems
+	Fahrzeugfeste (Strapdown)
 	\resizebox{\textwidth}{0.4\textheight} {
 		\includegraphics[scale=1]{images/strapdown.png} 
 	}
@@ -295,8 +229,7 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
 	\begin{itemize}
 		\item Satelliten
 		\item Raumfahrzeuge
-		\item Selbstfahrende Autos
-		\item Autopilot
+		\item Flugzeuge mit Autopilot
 		\item Marschflugkörper
 	\end{itemize}
 	
@@ -365,7 +298,7 @@ Die Kapazitäten $C_{1}$ und $C_{2}$ zwischen der beweglichen Platte und den äu
           \end{minipage}\hfill
           \begin{minipage}{0.4\textwidth}
            \centering
-            \includegraphics[width=0.8\textwidth]{images/Funktionsprinzip.svg}
+            \includegraphics[width=0.8\textwidth]{images/Funktionsprinzip.png}
           \end{minipage}\hfill
    \end{figure}
 \end{frame}
